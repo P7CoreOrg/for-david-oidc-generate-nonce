@@ -5,7 +5,7 @@ Repoed doing simple oidc login.
 
 1. Run the app  
 2. Set a break point in the class NeedsServiceProviderOpenIdConnectProtocolValidator, or SimpleOpenIdConnectProtocolValidator depending on which one you want.  
-3. click on ```"Secure"`` to trigger the login  
+3. click on ```"Secure"``` to trigger the login  
 
 
 The SimpleOpenIdConnectProtocolValidator works when it is directly added via good ole new()
