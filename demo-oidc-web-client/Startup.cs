@@ -60,6 +60,7 @@ namespace demo_oidc_web_client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             var authority = Configuration["oidc:authority"];
 
             services.AddControllersWithViews();
@@ -70,7 +71,7 @@ namespace demo_oidc_web_client
                 return new DiscoveryCache(authority, () => factory.CreateClient());
             });
 
-            services.AddOptions<OpenIdConnectOptions>()
+            services.AddOptions<OpenIdConnectOptions>("oidc")
                        .Configure<IServiceProvider>((options, sp) =>
                        {
                            options.ProtocolValidator = new NeedsServiceProviderOpenIdConnectProtocolValidator(sp)
